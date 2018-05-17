@@ -279,10 +279,7 @@ class Quick:
         :param index2:
         :return:
         """
-        if (index1+10) >=index2:
-            #算法改进策略，当细分到比较小的数组时，对于小数组用插入排序速度会更快
-            #暂时定为在数组大小为10左右时进行插入排序
-            insertSort(list[index1:index2])
+        if index1>=index2:
             return
         j=self.__partition(list,index1,index2)
         self.__sort(list, index1, j - 1)
@@ -357,13 +354,8 @@ class Quick:
 
     def testQuick(self):
         a=randomList()
-        b=MergeUp()
-        b.mergeSort(a)
-        print a
         self.quickSort(a)
         print a
-
-
 
 #######################################################################################################################
 #进行两种排序算法的比较
@@ -431,4 +423,6 @@ def compareSort():
     print("3wayquick排序和quick排序用时比为"+str(time1/time2))
 
 if __name__=="__main__":
-    compareSort()
+    #compareSort()
+    a=Quick()
+    a.testQuick()
